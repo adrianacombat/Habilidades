@@ -5,6 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contato — Barreto &amp; Sá Advogados</title>
 <meta name="description" content="Entre em contato com a Barreto & Sá Advogados. Agende uma consulta com nossos especialistas.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.barretosa.adv.br/contato.html">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https://picsum.photos data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self'; base-uri 'self'; form-action 'self'">
+<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+<meta name="theme-color" content="#0a0a09">
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -94,21 +99,26 @@
 
         <div data-reveal>
           <div class="eyebrow" style="margin-bottom:24px">Formulário</div>
-          <form class="contact-form">
+          <form class="contact-form" novalidate>
+            <!-- honeypot anti-spam: campo invisível para humanos, preenchido só por bots -->
+            <div class="form-field" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;">
+              <label for="website">Não preencha este campo</label>
+              <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+            </div>
             <div class="form-row">
               <div class="form-field">
                 <label for="nome">Nome completo</label>
-                <input type="text" id="nome" name="nome" required>
+                <input type="text" id="nome" name="nome" autocomplete="name" required>
               </div>
               <div class="form-field">
                 <label for="email">E-mail</label>
-                <input type="email" id="email" name="email" required>
+                <input type="email" id="email" name="email" autocomplete="email" required>
               </div>
             </div>
             <div class="form-row">
               <div class="form-field">
                 <label for="telefone">Telefone</label>
-                <input type="tel" id="telefone" name="telefone">
+                <input type="tel" id="telefone" name="telefone" autocomplete="tel">
               </div>
               <div class="form-field">
                 <label for="area">Área de interesse</label>
@@ -127,7 +137,13 @@
               <label for="mensagem">Mensagem</label>
               <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
             </div>
-            <p class="form-note">Ao enviar, você concorda com nossa política de confidencialidade. Não compartilhamos suas informações com terceiros.</p>
+            <div class="form-field form-field--check">
+              <label style="display:flex;align-items:flex-start;gap:10px;text-transform:none;letter-spacing:normal;font-size:13px;color:var(--champagne-dim)">
+                <input type="checkbox" id="consentimento" name="consentimento" required style="width:auto;margin-top:3px;accent-color:var(--gold)">
+                <span>Autorizo o uso dos meus dados para este contato, conforme a <a href="privacidade.html" class="link-underline">Política de Privacidade (LGPD)</a>.</span>
+              </label>
+            </div>
+            <p class="form-note">Suas informações são tratadas sob sigilo profissional e nunca compartilhadas com terceiros.</p>
             <button type="submit" class="btn" style="margin-top:14px">
               Enviar mensagem
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
@@ -176,7 +192,7 @@
     <hr class="rule">
     <div class="footer-bottom">
       <span>© 2026 Barreto &amp; Sá Advogados Associados. Todos os direitos reservados.</span>
-      <span>OAB/SP 45.892</span>
+      <span>OAB/SP 45.892 &middot; <a href="privacidade.html" style="color:inherit;border-bottom:1px solid var(--line-strong)">Privacidade</a></span>
     </div>
   </div>
 </footer>

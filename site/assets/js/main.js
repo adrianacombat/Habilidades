@@ -113,6 +113,16 @@ document.addEventListener('DOMContentLoaded', () => {
   if (form) {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
+
+      // honeypot: bots fill hidden fields, humans never see this input
+      const honeypot = form.querySelector('#website');
+      if (honeypot && honeypot.value.trim() !== '') return;
+
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
       const success = document.querySelector('.form-success');
       form.reset();
       if (success) success.classList.add('is-visible');
